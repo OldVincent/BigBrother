@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package jsk.services;
+
+message FaceIdentificationRequest {
+  bytes Image = 1;
+  float ConfidenceThreshold = 2;
+}
+
+message IdentifiedFace {
+  float Confidence = 1;
+  int32 CenterX = 2;
+  int32 CenterY = 3;
+  int32 BoxWidth = 4;
+  int32 BoxHeight = 5;
+  repeated float Embedding = 6;
+}
+
+message FaceIdentificationResponse {
+  repeated IdentifiedFace Faces = 1;
+}
+
+service FaceIdentificationService {
+  rpc Identify(FaceIdentificationRequest) returns (FaceIdentificationResponse);
+}

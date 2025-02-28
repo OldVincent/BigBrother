@@ -1,0 +1,8 @@
+@Address = http://localhost:9000
+
+POST {{Address}}/
+Content-Type: text/plain
+
+Tokyo
+
+###

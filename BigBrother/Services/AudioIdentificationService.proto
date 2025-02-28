@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package jsk.services;
+
+message AudioIdentificationRequest {
+  bytes Audio = 1;
+}
+
+message AudioIdentificationResponse {
+  repeated float Embedding = 1;
+}
+
+service AudioIdentificationService {
+  rpc Identify(AudioIdentificationRequest) returns (AudioIdentificationResponse);
+}
